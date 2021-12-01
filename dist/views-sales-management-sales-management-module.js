@@ -347,7 +347,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"animated fadeIn\">\n  <div class=\"row\">\n    <div class=\"col-lg-12\">\n      <div class=\"card\">\n        <!-- <div class=\"card-header\">Sales Management</div> -->\n        <div class=\"card-header d-flex justify-content-between align-items-center\">Sales Management\n          <div class=\"d-flex flex-wrap justify-content-end align-items-center\">\n            <div class=\"dropdown pull-right\">\n              <button (click)=\"commonService.toggleDropDown()\" class=\"btn btn-md btn-primary dropbtn\" type=\"button\">\n                <i class=\"fa fa-file-export mr-2\"></i>\n                Export\n              </button>\n              <div id=\"myDropdown\" class=\"dropdown-content\">\n                <a href=\"javascript:void(0)\" (click)=\"exportTable('xlsx')\"\n                  style=\"font-size: small; text-decoration: none;\">\n                  Export to XLSX\n                </a>\n                <!-- <a href=\"javascript:void(0)\"\n                                (click)=\"commonService.exportPDF(false, 0, 'avarageProductList')\">Export to PDF</a> -->\n                <!-- <a href=\"javascript:void(0)\" (click)=\"exportTable('pdf')\">Export to PDF</a> -->\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"card-body p-4\">\n          <ul class=\"row custom-box\">\n            <li>\n              <div class=\"card text-white bg-orange\" style=\"min-height: 161px;\">\n                <div class=\"card-body pb-0\">\n                  <button type=\"button\" class=\"btn btn-transparent p-0 float-right\">\n                  </button>\n                  <div class=\"text-value\">Amount to be received</div>\n                  <div *ngIf=\"!selectedFromDate && !selectedToDate && !selectedFromDueDate && !selectedToDueDate\">\n                    till {{dashboardCommonData?.date}}</div>\n                  <h3 style=\"margin-top: 20px;\">{{dashboardData?.remaining_amount ? (\"$\n                    \"+(dashboardData?.remaining_amount | number : '1.2-2')) : \"$0.00\"}}</h3>\n                </div>\n              </div>\n            </li>\n            <li>\n              <div class=\"card text-white bg-orange\" style=\"min-height: 161px;\">\n                <div class=\"card-body pb-0\">\n                  <button type=\"button\" class=\"btn btn-transparent p-0 float-right\">\n                  </button>\n                  <div class=\"text-value\">Amount Received</div>\n                  <div *ngIf=\"!selectedFromDate && !selectedToDate && !selectedFromDueDate && !selectedToDueDate\">\n                    till {{dashboardCommonData?.date}}</div>\n                  <h3 style=\"margin-top: 20px;\">{{dashboardData?.amount_recieved ? (\"$\n                    \"+(dashboardData?.amount_recieved | number : '1.2-2')) : \"$0.00\"}}</h3>\n                </div>\n              </div>\n            </li>\n            <li>\n              <div class=\"card text-white bg-orange\" style=\"min-height: 161px;\">\n                <div class=\"card-body pb-0\">\n                  <div class=\"btn-group float-right\">\n                    <button type=\"button\" class=\"btn btn-transparent p-0\">\n                    </button>\n                  </div>\n                  <div class=\"text-value\">Total Amount of Orders </div>\n                  <div *ngIf=\"!selectedFromDate && !selectedToDate && !selectedFromDueDate && !selectedToDueDate\">\n                    till {{dashboardCommonData?.date}}</div>\n                  <h3 style=\"margin-top: 20px;\">{{dashboardData?.total_amount ? (\"$\n                    \"+(dashboardData?.total_amount | number : '1.2-2')) : \"$0.00\"}}</h3>\n                </div>\n              </div>\n            </li>\n            <li>\n              <div class=\"card text-white bg-orange\" style=\"min-height: 161px;\">\n                <div class=\"card-body pb-0\">\n                  <div class=\"btn-group float-right\">\n                    <button type=\"button\" class=\"btn btn-transparent p-0\">\n                    </button>\n                  </div>\n                  <div class=\"text-value\" style=\"margin-bottom: 22px;\">Open Orders </div>\n                  <h3 style=\"margin-top: 62px;\">{{dashboardData?.open_order}}</h3>\n                </div>\n              </div>\n            </li>\n            <li>\n              <div class=\"card text-white bg-orange\" style=\"min-height: 161px;\">\n                <div class=\"card-body pb-0\">\n                  <div class=\"btn-group float-right\">\n                    <button type=\"button\" class=\"btn btn-transparent p-0\">\n                    </button>\n                  </div>\n                  <div class=\"text-value\" style=\"margin-bottom: 22px;\">Completed Orders</div>\n                  <h3 style=\"margin-top: 37px;\">{{dashboardData?.completed_orders}}</h3>\n                </div>\n              </div>\n            </li>\n          </ul>\n          <div class=\"responsive-table rounded mb-4\">\n            <form class=\"row justify-content-start align-items-center mb-3\">\n              <div class=\"col-sm-12 mb-2\">\n                <h4 class=\"d-block\">Filter BY :</h4>\n                <div class=\"btn-group float-right\">\n                  <button (click)=\"rerender()\" class=\"btn btn-md btn-dark\" style=\"margin-top: -40px;\"\n                    type=\"button\">Filter</button>\n                </div>\n              </div>\n              <div class=\"col-md-3 col-sm-12\">\n                <div class=\"form-group\">\n                  <label>From Date</label>\n                  <input [(ngModel)]=\"selectedFromDate\" [ngModelOptions]=\"{standalone: true}\" type=\"text\"\n                    placeholder=\"From Date\" class=\"form-control\" bsDatepicker>\n                </div>\n              </div>\n              <div class=\"col-md-3 col-sm-12\">\n                <div class=\"form-group\">\n                  <label>To Date</label>\n                  <input [(ngModel)]=\"selectedToDate\" [ngModelOptions]=\"{standalone: true}\" type=\"text\"\n                    placeholder=\"To Date\" class=\"form-control\" bsDatepicker>\n                </div>\n              </div>\n              <!-- <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>Payment Method</label>\n                                    <select [(ngModel)]=\"selectedMode\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\">\n                                        <option value=\"CASH\">Cash</option>\n                                        <option value=\"CHEQUE\">Check</option>\n                                        <option value=\"ONLINE\">Online</option>\n                                    </select>\n                                </div>\n                            </div> -->\n              <!-- <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>Search by </label>\n                                    <input class=\"form-control\" placeholder=\"Enter Check/Transaction or reference no#\"\n                                        type=\"text\">\n                                </div>\n                            </div> -->\n              <div class=\"col-md-3 col-sm-12\">\n                <div class=\"form-group\">\n                  <label>From Due Date </label>\n                  <input [(ngModel)]=\"selectedFromDueDate\" [ngModelOptions]=\"{standalone: true}\" type=\"text\"\n                    placeholder=\"From Due Date\" class=\"form-control\" bsDatepicker>\n                </div>\n              </div>\n              <div class=\"col-md-3 col-sm-12\">\n                <div class=\"form-group\">\n                  <label>To Due Date </label>\n                  <input [(ngModel)]=\"selectedToDueDate\" [ngModelOptions]=\"{standalone: true}\" type=\"text\"\n                    placeholder=\"To Due Date\" class=\"form-control\" bsDatepicker>\n                </div>\n              </div>\n              <div class=\"col-md-3 col-sm-12\">\n                <div class=\"form-group\">\n                  <label>Payment Status</label>\n                  <select [(ngModel)]=\"selectedPaymentStatus\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\"\n                    name=\"Category-Name\">\n                    <option value=\"\">All</option>\n                    <option value=\"FULL\">Paid (Cleared)</option>\n                    <option value=\"NOT_PAID\">Not Paid</option>\n                    <option value=\"PARTIAL\">Partially Paid</option>\n                  </select>\n                </div>\n              </div>\n              <!-- <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>Customer Name </label>\n                                    <input [(ngModel)]=\"selectedCustomerName\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Enter Customer Name \" type=\"text\">\n                                </div>\n                            </div> -->\n              <div class=\"col-md-3 col-sm-12\">\n                <div class=\"form-group\">\n                  <label>Store Name </label>\n                  <input [(ngModel)]=\"selectedStoreName\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\"\n                    placeholder=\"Enter Store Name \" type=\"text\">\n                </div>\n              </div>\n              <div class=\"col-md-3 col-sm-12\">\n                <div class=\"form-group\">\n                  <label>Order Status </label>\n                  <select [(ngModel)]=\"selectedOrderStatus\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\"\n                    name=\"Category-Name\">\n                    <option value=\"\">All</option>\n                    <option value=\"OPEN\">Open</option>\n                    <option value=\"IN_PROCESS\">In Process</option>\n                    <option value=\"COMPLETED\">Completed</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-md-3 col-sm-12\">\n                <div class=\"form-group\">\n                  <label>Verification Status</label>\n                  <select [(ngModel)]=\"selectedVerificationStatus\" [ngModelOptions]=\"{standalone: true}\"\n                    class=\"form-control\" name=\"Category-Name\">\n                    <option value=\"\">All</option>\n                    <option value=1>Verified</option>\n                    <option value=0>Not Verified</option>\n                  </select>\n                </div>\n              </div>\n              <!-- <div class=\"col-sm-3\">\n                                <button (click)=\"rerender()\" class=\"btn btn-md btn-dark mr-3\" style=\"margin-top: 12px;\"\n                                    type=\"button\">Filter</button>\n                            </div> -->\n            </form>\n            <!-- <div class=\"form-group dropdown\" style=\"float: right; margin-left: 10px;margin-top: -50px;\">\n                            <button (click)=\"commonService.toggleDropDown()\" class=\"btn btn-md btn-primary dropbtn\"\n                                type=\"button\"><i class=\"fa fa-file-export mr-2\n                            \"></i>Export</button>\n                            <div id=\"myDropdown\" class=\"dropdown-content\">\n                                <a href=\"javascript:void(0)\" (click)=\"exportTable('xlsx')\">Export to XLSX</a> -->\n            <!-- <a href=\"javascript:void(0)\" (click)=\"commonService.exportPDF(true, 11, 'orderList');rerender();\">Export to PDF</a> -->\n            <!-- <a href=\"javascript:void(0)\" (click)=\"exportTable('pdf')\">Export to PDF</a> -->\n            <!-- </div>\n                        </div> -->\n            <perfect-scrollbar>\n              <table style=\"width: 100%;\" datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\"\n                class=\"data row-border hover table order-table border\" id=\"excel-table\">\n                <thead>\n                  <tr>\n                    <th>Order<br>Date</th>\n                    <th>Invoice<br>No</th>\n                    <th>PO No</th>\n                    <!-- <th>Customer Name</th> -->\n                    <th>Store Name</th>\n                    <th>Payment<br>Due Date</th>\n                    <th>Order<br>Amount</th>\n                    <th>Order<br>Status</th>\n                    <!-- <th>Order <br> Verification</th> -->\n                    <th>Order <br>Amount <br> Received</th>\n                    <th>Open <br> Balance</th>\n                    <th>Profit</th>\n                    <th>Profit Percentage</th>\n                    <th>Payment <br> Status</th>\n                    <th>Salesman</th>\n                    <th id=\"last-header\">Action</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr *ngFor=\"let sales of salesList;let i = index;\">\n                    <td style=\"width: 10px;\">{{sales.created_at ? (sales.created_at | date:\n                      'MM-dd-yyyy') : \"-\"}}</td>\n                    <td style=\"text-align: center;\">\n                      <a [routerLink]=\"['/sales-management/order-invoice']\"\n                        [queryParams]='{id: sales?.id, customer_id: sales?.customer, verified: sales?.verfication_status, isDelivered: sales?.delivered_status, vs: selectedVerificationStatus, os: selectedOrderStatus, sn: selectedStoreName, ps: selectedPaymentStatus, fdd: selectedFromDueDate, tdd: selectedToDueDate, fd: selectedFromDate, td: selectedToDate, limit: tableLimit, search: searchValue}'\n                        class=\"text-primary mx-2\">\n                        <span class=\"anchor-tag\">\n                          {{sales.invoice_no || \"-\"}}\n                        </span>\n                      </a>\n                    </td>\n                    <td>{{sales.po_num || \"-\"}}</td>\n                    <!-- <td>{{sales.customer_name || \"-\"}}</td> -->\n                    <td style=\"white-space: nowrap;\">{{sales.store_name || \"-\"}}</td>\n                    <td>{{sales.due_date ? (sales.due_date | date: 'MM-dd-yyyy') : \"-\"}}</td>\n                    <td>{{sales.amount ? (\"$\"+(sales.amount | number : '1.2-2')) : \"$0.00\"}}</td>\n                    <td>\n                      <span *ngIf=\"sales.status == 'OPEN' || sales.status == 'IN_PROCESS'\">\n                        {{sales.status}}\n                      </span>\n                      <span *ngIf=\"sales.status == 'COMPLETED' && !sales.delivered_status\">\n                        {{sales.status}}<br>\n                        <span class=\"text-success\" [ngClass]=\"{'text-danger': !sales.verfication_status}\">\n                          {{sales.verfication_status ? \"Verified\" : \"Not Verified\"}}\n                        </span>\n                      </span>\n                      <span *ngIf=\"sales.status == 'COMPLETED' && sales.delivered_status\">\n                        {{sales.status}}<br>\n                        <span class=\"text-success\" [ngClass]=\"{'text-danger': !sales.verfication_status}\">\n                          {{sales.verfication_status ? \"Verified\" : \"Not Verified\"}}\n                        </span><br>\n                        <span class=\"text-primary\">\n                          {{sales.delivered_status ? \"Delivered\" : \"Not Delivered\"}}\n                        </span>\n                      </span>\n                    </td>\n                    <!-- <td>\n                                            <span *ngIf=\"sales.verfication_status\" class=\"text-success\">Verified</span>\n                                            <span *ngIf=\"!sales.verfication_status\" class=\"text-danger\">Not\n                                                Verified</span>\n                                        </td> -->\n                    <td>{{sales.amount_recieved ? (\"$\"+(sales.amount_recieved | number : '1.2-2')) :\n                      \"$0.00\"}}</td>\n                    <td>{{sales.remaining_amount ? (\"$\"+(sales.remaining_amount | number : '1.2-2'))\n                      : \"$0.00\"}}</td>\n                    <td>{{sales.order_profit ? (\"$\"+(sales.order_profit | number : '1.2-2')) :\n                      \"$0.00\"}}\n                    </td>\n                    <td>{{sales.order_profit_percentage + \"%\"}}\n                    </td>\n                    <td>\n                      <span *ngIf=\"sales?.payment_status == 'NOT_PAID'\" class=\"text-danger\">Not\n                        Paid</span>\n                      <span *ngIf=\"sales?.payment_status == 'FULL'\" class=\"text-success\">Paid</span>\n                      <span *ngIf=\"sales?.payment_status == 'PARTIAL'\">Partially Paid</span>\n                      <span *ngIf=\"sales?.payment_status == null\">-</span>\n                    </td>\n                    <td>{{sales.salesman || \"-\"}}</td>\n                    <td>\n                      <div class=\"d-flex align-items-center justify-content-center\">\n                        <a [routerLink]=\"['/sales-management/order-invoice']\"\n                          [queryParams]='{id: sales?.id, customer_id: sales?.customer, verified: sales?.verfication_status, isDelivered: sales?.delivered_status, vs: selectedVerificationStatus, os: selectedOrderStatus, sn: selectedStoreName, ps: selectedPaymentStatus, fdd: selectedFromDueDate, tdd: selectedToDueDate, fd: selectedFromDate, td: selectedToDate, limit: tableLimit, search: searchValue}'\n                          class=\"text-primary mx-2\"><i class=\"fa fa-file-invoice\"></i></a>\n                        <!-- <a [routerLink]=\"['/sales-management/status-order']\" [queryParams]='{id: sales?.id,print: 1}' class=\"text-info mx-2\" href=\"javascript:void(0)\"><i\n                                                        class=\"fa fa-print\"></i></a> -->\n                        <a *ngIf=\"sales.invoice_no\" (click)=\"printPage(sales.invoice_no)\" class=\"text-info mx-2\"\n                          href=\"javascript:void(0)\"><i class=\"fa fa-print\"></i></a>\n                      </div>\n                    </td>\n                  </tr>\n                  <tr *ngIf=\"salesList?.length == 0\">\n                    <td colspan=\"13\" class=\"no-data-available\">No Data Found !</td>\n                  </tr>\n                </tbody>\n              </table>\n            </perfect-scrollbar>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"animated fadeIn\">\n    <div class=\"row\">\n        <div class=\"col-lg-12\">\n            <div class=\"card\">\n                <div class=\"card-header\">Sales Management</div>\n                <div class=\"card-body p-4\">\n                    <ul class=\"row custom-box\">\n                        <li>\n                            <div class=\"card text-white bg-orange\" style=\"min-height: 161px;\">\n                                <div class=\"card-body pb-0\">\n                                    <button type=\"button\" class=\"btn btn-transparent p-0 float-right\">\n                                    </button>\n                                    <div class=\"text-value\">Amount to be received</div>\n                                    <div\n                                        *ngIf=\"!selectedFromDate && !selectedToDate && !selectedFromDueDate && !selectedToDueDate\">\n                                        till {{dashboardCommonData?.date}}</div>\n                                    <h3 style=\"margin-top: 20px;\">{{dashboardData?.remaining_amount ? (\"$\n                                        \"+(dashboardData?.remaining_amount | number : '1.2-2')) : \"$0.00\"}}</h3>\n                                </div>\n                            </div>\n                        </li>\n                        <li>\n                            <div class=\"card text-white bg-orange\" style=\"min-height: 161px;\">\n                                <div class=\"card-body pb-0\">\n                                    <button type=\"button\" class=\"btn btn-transparent p-0 float-right\">\n                                    </button>\n                                    <div class=\"text-value\">Amount Received</div>\n                                    <div\n                                        *ngIf=\"!selectedFromDate && !selectedToDate && !selectedFromDueDate && !selectedToDueDate\">\n                                        till {{dashboardCommonData?.date}}</div>\n                                    <h3 style=\"margin-top: 20px;\">{{dashboardData?.amount_recieved ? (\"$\n                                        \"+(dashboardData?.amount_recieved | number : '1.2-2')) : \"$0.00\"}}</h3>\n                                </div>\n                            </div>\n                        </li>\n                        <li>\n                            <div class=\"card text-white bg-orange\" style=\"min-height: 161px;\">\n                                <div class=\"card-body pb-0\">\n                                    <div class=\"btn-group float-right\">\n                                        <button type=\"button\" class=\"btn btn-transparent p-0\">\n                                        </button>\n                                    </div>\n                                    <div class=\"text-value\">Total Amount of Orders </div>\n                                    <div\n                                        *ngIf=\"!selectedFromDate && !selectedToDate && !selectedFromDueDate && !selectedToDueDate\">\n                                        till {{dashboardCommonData?.date}}</div>\n                                    <h3 style=\"margin-top: 20px;\">{{dashboardData?.total_amount ? (\"$\n                                        \"+(dashboardData?.total_amount | number : '1.2-2')) : \"$0.00\"}}</h3>\n                                </div>\n                            </div>\n                        </li>\n                        <li>\n                            <div class=\"card text-white bg-orange\" style=\"min-height: 161px;\">\n                                <div class=\"card-body pb-0\">\n                                    <div class=\"btn-group float-right\">\n                                        <button type=\"button\" class=\"btn btn-transparent p-0\">\n                                        </button>\n                                    </div>\n                                    <div class=\"text-value\" style=\"margin-bottom: 22px;\">Open Orders </div>\n                                    <h3 style=\"margin-top: 62px;\">{{dashboardData?.open_order}}</h3>\n                                </div>\n                            </div>\n                        </li>\n                        <li>\n                            <div class=\"card text-white bg-orange\" style=\"min-height: 161px;\">\n                                <div class=\"card-body pb-0\">\n                                    <div class=\"btn-group float-right\">\n                                        <button type=\"button\" class=\"btn btn-transparent p-0\">\n                                        </button>\n                                    </div>\n                                    <div class=\"text-value\" style=\"margin-bottom: 22px;\">Completed Orders</div>\n                                    <h3 style=\"margin-top: 37px;\">{{dashboardData?.completed_orders}}</h3>\n                                </div>\n                            </div>\n                        </li>\n                    </ul>\n                    <div class=\"responsive-table rounded mb-4\">\n                        <form class=\"row justify-content-start align-items-center mb-4\">\n                            <div class=\"col-sm-12 mb-2\">\n                                <h4 class=\"d-block\">Filter BY :</h4>\n                            </div>\n                            <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>From Date</label>\n                                    <input [(ngModel)]=\"selectedFromDate\" [ngModelOptions]=\"{standalone: true}\"\n                                        type=\"text\" placeholder=\"From Date\" class=\"form-control\" bsDatepicker>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>To Date</label>\n                                    <input [(ngModel)]=\"selectedToDate\" [ngModelOptions]=\"{standalone: true}\"\n                                        type=\"text\" placeholder=\"To Date\" class=\"form-control\" bsDatepicker>\n                                </div>\n                            </div>\n                            <!-- <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>Payment Method</label>\n                                    <select [(ngModel)]=\"selectedMode\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\">\n                                        <option value=\"CASH\">Cash</option>\n                                        <option value=\"CHEQUE\">Check</option>\n                                        <option value=\"ONLINE\">Online</option>\n                                    </select>\n                                </div>\n                            </div> -->\n                            <!-- <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>Search by </label>\n                                    <input class=\"form-control\" placeholder=\"Enter Check/Transaction or reference no#\"\n                                        type=\"text\">\n                                </div>\n                            </div> -->\n                            <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>From Due Date </label>\n                                    <input [(ngModel)]=\"selectedFromDueDate\" [ngModelOptions]=\"{standalone: true}\"\n                                        type=\"text\" placeholder=\"From Due Date\" class=\"form-control\" bsDatepicker>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>To Due Date </label>\n                                    <input [(ngModel)]=\"selectedToDueDate\" [ngModelOptions]=\"{standalone: true}\"\n                                        type=\"text\" placeholder=\"To Due Date\" class=\"form-control\" bsDatepicker>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>Payment Status</label>\n                                    <select [(ngModel)]=\"selectedPaymentStatus\" [ngModelOptions]=\"{standalone: true}\"\n                                        class=\"form-control\" name=\"Category-Name\">\n                                        <option value=\"\">All</option>\n                                        <option value=\"FULL\">Paid (Cleared)</option>\n                                        <option value=\"NOT_PAID\">Not Paid</option>\n                                        <option value=\"PARTIAL\">Partially Paid</option>\n                                    </select>\n                                </div>\n                            </div>\n                            <!-- <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>Customer Name </label>\n                                    <input [(ngModel)]=\"selectedCustomerName\" [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" placeholder=\"Enter Customer Name \" type=\"text\">\n                                </div>\n                            </div> -->\n                            <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>Store Name </label>\n                                    <input [(ngModel)]=\"selectedStoreName\" [ngModelOptions]=\"{standalone: true}\"\n                                        class=\"form-control\" placeholder=\"Enter Store Name \" type=\"text\">\n                                </div>\n                            </div>\n                            <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>Order Status </label>\n                                    <select [(ngModel)]=\"selectedOrderStatus\" [ngModelOptions]=\"{standalone: true}\"\n                                        class=\"form-control\" name=\"Category-Name\">\n                                        <option value=\"\">All</option>\n                                        <option value=\"OPEN\">Open</option>\n                                        <option value=\"IN_PROCESS\">In Process</option>\n                                        <option value=\"COMPLETED\">Completed</option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class=\"col-md-3 col-sm-12\">\n                                <div class=\"form-group\">\n                                    <label>Verification Status</label>\n                                    <select [(ngModel)]=\"selectedVerificationStatus\"\n                                        [ngModelOptions]=\"{standalone: true}\" class=\"form-control\" name=\"Category-Name\">\n                                        <option value=\"\">All</option>\n                                        <option value=1>Verified</option>\n                                        <option value=0>Not Verified</option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <button (click)=\"rerender()\" class=\"btn btn-md btn-dark mr-3\" style=\"margin-top: 12px;\"\n                                    type=\"button\">Filter</button>\n                            </div>\n                        </form>\n                        <div class=\"form-group dropdown\" style=\"float: right; margin-left: 10px;margin-top: -50px;\">\n                            <button (click)=\"commonService.toggleDropDown()\" class=\"btn btn-md btn-primary dropbtn\"\n                                type=\"button\"><i class=\"fa fa-file-export mr-2\n                            \"></i>Export</button>\n                            <div id=\"myDropdown\" class=\"dropdown-content\">\n                                <a href=\"javascript:void(0)\" (click)=\"exportTable('xlsx')\">Export to XLSX</a>\n                                <!-- <a href=\"javascript:void(0)\" (click)=\"commonService.exportPDF(true, 11, 'orderList');rerender();\">Export to PDF</a> -->\n                                <!-- <a href=\"javascript:void(0)\" (click)=\"exportTable('pdf')\">Export to PDF</a> -->\n                            </div>\n                        </div>\n                        <perfect-scrollbar>\n                            <table style=\"width: 100%;\" datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\"\n                                class=\"data row-border hover table order-table border\" id=\"excel-table\">\n                                <thead>\n                                    <tr>\n                                        <th>Order<br>Date</th>\n                                        <th>Invoice<br>No</th>\n                                        <th>PO No</th>\n                                        <!-- <th>Customer Name</th> -->\n                                        <th>Store Name</th>\n                                        <th>Payment<br>Due Date</th>\n                                        <th>Order<br>Amount</th>\n                                        <th>Order<br>Status</th>\n                                        <!-- <th>Order <br> Verification</th> -->\n                                        <th>Order <br>Amount <br> Received</th>\n                                        <th>Open <br> Balance</th>\n                                        <th>Profit</th>\n                                        <th>Profit Percentage</th>\n                                        <th>Payment <br> Status</th>\n                                        <th>Salesman</th>\n                                        <th>Action</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor=\"let sales of salesList;let i = index;\">\n                                        <td style=\"width: 10px;\">{{sales.created_at ? (sales.created_at | date:\n                                            'MM-dd-yyyy') : \"-\"}}</td>\n                                        <td style=\"text-align: center;\">\n                                            <a [routerLink]=\"['/sales-management/order-invoice']\"\n                                                [queryParams]='{id: sales?.id, customer_id: sales?.customer, verified: sales?.verfication_status, isDelivered: sales?.delivered_status, vs: selectedVerificationStatus, os: selectedOrderStatus, sn: selectedStoreName, ps: selectedPaymentStatus, fdd: selectedFromDueDate, tdd: selectedToDueDate, fd: selectedFromDate, td: selectedToDate, limit: tableLimit, search: searchValue}'\n                                                class=\"text-primary mx-2\">\n                                                <span class=\"anchor-tag\">\n                                                    {{sales.invoice_no || \"-\"}}\n                                                </span>\n                                            </a>\n                                        </td>\n                                        <td>{{sales.po_num || \"-\"}}</td>\n                                        <!-- <td>{{sales.customer_name || \"-\"}}</td> -->\n                                        <td style=\"white-space: nowrap;\">{{sales.store_name || \"-\"}}</td>\n                                        <td>{{sales.due_date ? (sales.due_date | date: 'MM-dd-yyyy') : \"-\"}}</td>\n                                        <td>{{sales.amount ? (\"$\"+(sales.amount | number : '1.2-2')) : \"$0.00\"}}</td>\n                                        <td>\n                                            <span *ngIf=\"sales.status == 'OPEN' || sales.status == 'IN_PROCESS'\">\n                                                {{sales.status}}\n                                            </span>\n                                            <span *ngIf=\"sales.status == 'COMPLETED' && !sales.delivered_status\">\n                                                {{sales.status}}<br>\n                                                <span class=\"text-success\"\n                                                    [ngClass]=\"{'text-danger': !sales.verfication_status}\">\n                                                    {{sales.verfication_status ? \"Verified\" : \"Not Verified\"}}\n                                                </span>\n                                            </span>\n                                            <span *ngIf=\"sales.status == 'COMPLETED' && sales.delivered_status\">\n                                                {{sales.status}}<br>\n                                                <span class=\"text-success\"\n                                                    [ngClass]=\"{'text-danger': !sales.verfication_status}\">\n                                                    {{sales.verfication_status ? \"Verified\" : \"Not Verified\"}}\n                                                </span><br>\n                                                <span class=\"text-primary\">\n                                                    {{sales.delivered_status ? \"Delivered\" : \"Not Delivered\"}}\n                                                </span>\n                                            </span>\n                                        </td>\n                                        <!-- <td>\n                                            <span *ngIf=\"sales.verfication_status\" class=\"text-success\">Verified</span>\n                                            <span *ngIf=\"!sales.verfication_status\" class=\"text-danger\">Not\n                                                Verified</span>\n                                        </td> -->\n                                        <td>{{sales.amount_recieved ? (\"$\"+(sales.amount_recieved | number : '1.2-2')) :\n                                            \"$0.00\"}}</td>\n                                        <td>{{sales.remaining_amount ? (\"$\"+(sales.remaining_amount | number : '1.2-2'))\n                                            : \"$0.00\"}}</td>\n                                        <td>{{sales.order_profit ? (\"$\"+(sales.order_profit | number : '1.2-2')) :\n                                            \"$0.00\"}}\n                                        </td>\n                                        <td>{{sales.order_profit_percentage + \"%\"}}\n                                        </td>\n                                        <td>\n                                            <span *ngIf=\"sales?.payment_status == 'NOT_PAID'\" class=\"text-danger\">Not\n                                                Paid</span>\n                                            <span *ngIf=\"sales?.payment_status == 'FULL'\"\n                                                class=\"text-success\">Paid</span>\n                                            <span *ngIf=\"sales?.payment_status == 'PARTIAL'\">Partially Paid</span>\n                                            <span *ngIf=\"sales?.payment_status == null\">-</span>\n                                        </td>\n                                        <td>{{sales.salesman || \"-\"}}</td>\n                                        <td>\n                                            <div class=\"d-flex align-items-center justify-content-center\">\n                                                <a [routerLink]=\"['/sales-management/order-invoice']\"\n                                                    [queryParams]='{id: sales?.id, customer_id: sales?.customer, verified: sales?.verfication_status, isDelivered: sales?.delivered_status, vs: selectedVerificationStatus, os: selectedOrderStatus, sn: selectedStoreName, ps: selectedPaymentStatus, fdd: selectedFromDueDate, tdd: selectedToDueDate, fd: selectedFromDate, td: selectedToDate, limit: tableLimit, search: searchValue}'\n                                                    class=\"text-primary mx-2\"><i class=\"fa fa-file-invoice\"></i></a>\n                                                <!-- <a [routerLink]=\"['/sales-management/status-order']\" [queryParams]='{id: sales?.id,print: 1}' class=\"text-info mx-2\" href=\"javascript:void(0)\"><i\n                                                        class=\"fa fa-print\"></i></a> -->\n                                                <a *ngIf=\"sales.invoice_no\" (click)=\"printPage(sales.invoice_no)\"\n                                                    class=\"text-info mx-2\" href=\"javascript:void(0)\"><i\n                                                        class=\"fa fa-print\"></i></a>\n                                            </div>\n                                        </td>\n                                    </tr>\n                                    <tr *ngIf=\"salesList?.length == 0\">\n                                        <td colspan=\"13\" class=\"no-data-available\">No Data Found !</td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </perfect-scrollbar>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -1478,7 +1478,7 @@ var SalesManagementComponent = /** @class */ (function () {
         this.status = false;
         this.firstTimeSearch = false;
         this.firstTime = false;
-        this.searchValue = "";
+        this.searchValue = '';
     }
     SalesManagementComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1504,135 +1504,50 @@ var SalesManagementComponent = /** @class */ (function () {
     SalesManagementComponent.prototype.getSalesList = function () {
         var _this = this;
         this.dtOptions = {
-            pagingType: "full_numbers",
+            pagingType: 'full_numbers',
             pageLength: 100,
-            order: [0, "desc"],
+            order: [0, 'desc'],
             serverSide: true,
-            scrollY: "450px",
-            scrollX: true,
-            scrollCollapse: true,
+            // scrollY: "400",
+            // scrollX: true,
+            // autoWidth: false,
+            // scrollCollapse: false,
             searchDelay: 1300,
             processing: true,
             ajax: function (dataTablesParameters, callback) {
-                dataTablesParameters.page =
-                    parseInt(dataTablesParameters.start) /
-                        parseInt(dataTablesParameters.length) +
-                        1;
+                dataTablesParameters.page = parseInt(dataTablesParameters.start) / parseInt(dataTablesParameters.length) + 1;
                 dataTablesParameters.limit = dataTablesParameters.length;
                 // dataTablesParameters.search_param = dataTablesParameters.search.value;
-                dataTablesParameters.draw == 1 && _this.firstTime
-                    ? (dataTablesParameters.limit = Number(_this.tableLimit))
-                    : "";
-                dataTablesParameters.draw == 1 && _this.firstTime
-                    ? (dataTablesParameters.length = Number(_this.tableLimit))
-                    : "";
+                (dataTablesParameters.draw == 1 && _this.firstTime) ? ((dataTablesParameters.limit = Number(_this.tableLimit))) : "";
+                (dataTablesParameters.draw == 1 && _this.firstTime) ? ((dataTablesParameters.length = Number(_this.tableLimit))) : "";
                 if (!_this.firstTime) {
                     dataTablesParameters.search_param = dataTablesParameters.search.value;
                     _this.searchValue = dataTablesParameters.search.value;
                 }
                 else if (_this.firstTime) {
                     dataTablesParameters.search_param = _this.searchValue;
-                    $(".dataTables_filter input").val(_this.searchValue);
+                    $('.dataTables_filter input').val(_this.searchValue);
                     _this.firstTime = false;
                 }
                 _this.tableLimit = dataTablesParameters.limit;
-                $(".dataTables_wrapper .dataTables_length label select").val(_this.tableLimit);
+                $('.dataTables_wrapper .dataTables_length label select').val(_this.tableLimit);
                 // filter
-                dataTablesParameters.order[0].column == 0
-                    ? (dataTablesParameters.created_at =
-                        dataTablesParameters.order[0].column == 0 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "created_at"
-                            : "-created_at")
-                    : "";
-                dataTablesParameters.order[0].column == 1
-                    ? (dataTablesParameters.invoice_no =
-                        dataTablesParameters.order[0].column == 1 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "invoice_no"
-                            : "-invoice_no")
-                    : "";
-                dataTablesParameters.order[0].column == 2
-                    ? (dataTablesParameters.po_num =
-                        dataTablesParameters.order[0].column == 2 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "po_num"
-                            : "-po_num")
-                    : "";
-                dataTablesParameters.order[0].column == 3
-                    ? (dataTablesParameters.customer__store_name =
-                        dataTablesParameters.order[0].column == 3 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "customer__store_name"
-                            : "-customer__store_name")
-                    : "";
-                dataTablesParameters.order[0].column == 4
-                    ? (dataTablesParameters.due_date =
-                        dataTablesParameters.order[0].column == 4 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "due_date"
-                            : "-due_date")
-                    : "";
-                dataTablesParameters.order[0].column == 5
-                    ? (dataTablesParameters.amount =
-                        dataTablesParameters.order[0].column == 5 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "amount"
-                            : "-amount")
-                    : "";
-                dataTablesParameters.order[0].column == 6
-                    ? (dataTablesParameters.status =
-                        dataTablesParameters.order[0].column == 6 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "status"
-                            : "-status")
-                    : "";
+                dataTablesParameters.order[0].column == 0 ? dataTablesParameters.created_at = (dataTablesParameters.order[0].column == 0 && dataTablesParameters.order[0].dir == "asc") ? ("created_at") : ("-created_at") : "";
+                dataTablesParameters.order[0].column == 1 ? dataTablesParameters.invoice_no = (dataTablesParameters.order[0].column == 1 && dataTablesParameters.order[0].dir == "asc") ? ("invoice_no") : ("-invoice_no") : "";
+                dataTablesParameters.order[0].column == 2 ? dataTablesParameters.po_num = (dataTablesParameters.order[0].column == 2 && dataTablesParameters.order[0].dir == "asc") ? ("po_num") : ("-po_num") : "";
+                dataTablesParameters.order[0].column == 3 ? dataTablesParameters.customer__store_name = (dataTablesParameters.order[0].column == 3 && dataTablesParameters.order[0].dir == "asc") ? ("customer__store_name") : ("-customer__store_name") : "";
+                dataTablesParameters.order[0].column == 4 ? dataTablesParameters.due_date = (dataTablesParameters.order[0].column == 4 && dataTablesParameters.order[0].dir == "asc") ? ("due_date") : ("-due_date") : "";
+                dataTablesParameters.order[0].column == 5 ? dataTablesParameters.amount = (dataTablesParameters.order[0].column == 5 && dataTablesParameters.order[0].dir == "asc") ? ("amount") : ("-amount") : "";
+                dataTablesParameters.order[0].column == 6 ? dataTablesParameters.status = (dataTablesParameters.order[0].column == 6 && dataTablesParameters.order[0].dir == "asc") ? ("status") : ("-status") : "";
                 // dataTablesParameters.order[0].column == 7 ? dataTablesParameters.verfication_status = (dataTablesParameters.order[0].column == 7 && dataTablesParameters.order[0].dir == "asc") ? ("verfication_status") : ("-verfication_status") : "";
-                dataTablesParameters.order[0].column == 7
-                    ? (dataTablesParameters.amount_recieved =
-                        dataTablesParameters.order[0].column == 7 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "amount_recieved"
-                            : "-amount_recieved")
-                    : "";
-                dataTablesParameters.order[0].column == 8
-                    ? (dataTablesParameters.remaining_amount =
-                        dataTablesParameters.order[0].column == 8 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "remaining_amount"
-                            : "-remaining_amount")
-                    : "";
-                dataTablesParameters.order[0].column == 9
-                    ? (dataTablesParameters.order_profit =
-                        dataTablesParameters.order[0].column == 9 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "order_profit"
-                            : "-order_profit")
-                    : "";
-                dataTablesParameters.order[0].column == 10
-                    ? (dataTablesParameters.order_profit_percentage =
-                        dataTablesParameters.order[0].column == 10 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "order_profit_percentage"
-                            : "-order_profit_percentage")
-                    : "";
-                dataTablesParameters.order[0].column == 11
-                    ? (dataTablesParameters.payment_status =
-                        dataTablesParameters.order[0].column == 11 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "payment_status"
-                            : "-payment_status")
-                    : "";
-                dataTablesParameters.order[0].column == 12
-                    ? (dataTablesParameters.salesman =
-                        dataTablesParameters.order[0].column == 12 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "salesman"
-                            : "-salesman")
-                    : "";
+                dataTablesParameters.order[0].column == 7 ? dataTablesParameters.amount_recieved = (dataTablesParameters.order[0].column == 7 && dataTablesParameters.order[0].dir == "asc") ? ("amount_recieved") : ("-amount_recieved") : '';
+                dataTablesParameters.order[0].column == 8 ? dataTablesParameters.remaining_amount = (dataTablesParameters.order[0].column == 8 && dataTablesParameters.order[0].dir == "asc") ? ("remaining_amount") : ("-remaining_amount") : "";
+                dataTablesParameters.order[0].column == 9 ? dataTablesParameters.order_profit = (dataTablesParameters.order[0].column == 9 && dataTablesParameters.order[0].dir == "asc") ? ("order_profit") : ("-order_profit") : "";
+                dataTablesParameters.order[0].column == 10 ? dataTablesParameters.order_profit_percentage = (dataTablesParameters.order[0].column == 10 && dataTablesParameters.order[0].dir == "asc") ? ("order_profit_percentage") : ("-order_profit_percentage") : "";
+                dataTablesParameters.order[0].column == 11 ? dataTablesParameters.payment_status = (dataTablesParameters.order[0].column == 11 && dataTablesParameters.order[0].dir == "asc") ? ("payment_status") : ("-payment_status") : "";
+                dataTablesParameters.order[0].column == 12 ? dataTablesParameters.salesman = (dataTablesParameters.order[0].column == 12 && dataTablesParameters.order[0].dir == "asc") ? ("salesman") : ("-salesman") : "";
                 // filters
-                dataTablesParameters.filter_verification_status =
-                    _this.selectedVerificationStatus;
+                dataTablesParameters.filter_verification_status = _this.selectedVerificationStatus;
                 dataTablesParameters.filter_order_status = _this.selectedOrderStatus;
                 dataTablesParameters.filter_store_name = _this.selectedStoreName;
                 // dataTablesParameters.filter_customer_name = this.selectedCustomerName;
@@ -1642,53 +1557,44 @@ var SalesManagementComponent = /** @class */ (function () {
                 dataTablesParameters.filter_from_date = _this.datePipe.transform(_this.selectedFromDate, "yyyy-MM-dd");
                 dataTablesParameters.filter_to_date = _this.datePipe.transform(_this.selectedToDate, "yyyy-MM-dd");
                 _this.datatbaleData = dataTablesParameters;
-                _this.salesManagementService.orderList(dataTablesParameters).subscribe(function (respones) {
+                _this.salesManagementService
+                    .orderList(dataTablesParameters)
+                    .subscribe(function (respones) {
                     var resData = JSON.parse(JSON.stringify(respones));
                     if (resData.status_code == 200) {
                         _this.salesList = resData.data;
                         _this.dashboardData = resData.count_data;
-                        setTimeout(function () {
-                            var table = $("#excel-table").DataTable();
-                            table.columns.adjust();
-                            document.getElementById("last-header").style.width = "auto";
-                        }, 10);
                         callback({
                             recordsTotal: resData.total_record,
-                            recordsFiltered: dataTablesParameters.search_param == "" &&
-                                dataTablesParameters.filter_verification_status == "" &&
-                                dataTablesParameters.filter_order_status == "" &&
-                                dataTablesParameters.filter_store_name == "" &&
-                                dataTablesParameters.filter_payment_status == ""
-                                ? resData.total_record
-                                : resData.filter_record,
-                            data: [],
+                            recordsFiltered: (dataTablesParameters.search_param == "" && dataTablesParameters.filter_verification_status == "" && dataTablesParameters.filter_order_status == "" && dataTablesParameters.filter_store_name == "" && dataTablesParameters.filter_payment_status == "") ? resData.total_record : resData.filter_record,
+                            data: []
                         });
                     }
                     else {
-                        _this.toastr.error("", resData.message);
+                        _this.toastr.error('', resData.message);
                     }
                 }, function (err) {
-                    _this.toastr.error("", err.error.message);
+                    _this.toastr.error('', err.error.message);
                 });
             },
             columns: [
-                { data: "created_at", searchable: false, orderable: true },
-                { data: "invoice_no", searchable: true, orderable: true },
-                { data: "po_num", searchable: true, orderable: true },
+                { data: 'created_at', searchable: false, orderable: true },
+                { data: 'invoice_no', searchable: true, orderable: true },
+                { data: 'po_num', searchable: true, orderable: true },
                 // { data: 'customer_name', searchable: true, orderable: false },
-                { data: "store_name", searchable: true, orderable: true },
-                { data: "due_date", searchable: false, orderable: true },
-                { data: "amount", searchable: false, orderable: true },
-                { data: "status", searchable: false, orderable: true },
+                { data: 'store_name', searchable: true, orderable: true },
+                { data: 'due_date', searchable: false, orderable: true },
+                { data: 'amount', searchable: false, orderable: true },
+                { data: 'status', searchable: false, orderable: true },
                 // { data: 'verfication_status', searchable: true, orderable: true },
-                { data: "amount_recieved", searchable: false, orderable: true },
-                { data: "remaining_amount", searchable: false, orderable: true },
-                { data: "order_profit", searchable: false, orderable: true },
-                { data: "order_profit_percentage", searchable: false, orderable: true },
-                { data: "payment_status", searchable: false, orderable: true },
-                { data: "salesman", searchable: true, orderable: true },
-                { data: "action", searchable: false, orderable: false },
-            ],
+                { data: 'amount_recieved', searchable: false, orderable: true },
+                { data: 'remaining_amount', searchable: false, orderable: true },
+                { data: 'order_profit', searchable: false, orderable: true },
+                { data: 'order_profit_percentage', searchable: false, orderable: true },
+                { data: 'payment_status', searchable: false, orderable: true },
+                { data: 'salesman', searchable: true, orderable: true },
+                { data: 'action', searchable: false, orderable: false }
+            ]
         };
     };
     SalesManagementComponent.prototype.getSalesDashboardData = function () {
@@ -1699,10 +1605,10 @@ var SalesManagementComponent = /** @class */ (function () {
                 _this.dashboardCommonData = resData.data;
             }
             else {
-                _this.toastr.error("", resData.message);
+                _this.toastr.error('', resData.message);
             }
         }, function (err) {
-            _this.toastr.error("", err.error.message);
+            _this.toastr.error('', err.error.message);
         });
     };
     SalesManagementComponent.prototype.ngAfterViewInit = function () {
@@ -1734,7 +1640,7 @@ var SalesManagementComponent = /** @class */ (function () {
         this.salesManagementService.getInvoicePdf(formData).subscribe(function (resultBlob) {
             // It is necessary to create a new blob object with mime-type explicitly set
             // otherwise only Chrome works like it should
-            var newBlob = new Blob([resultBlob], { type: "application/pdf" });
+            var newBlob = new Blob([(resultBlob)], { type: 'application/pdf' });
             // IE doesn't allow using a blob object directly as link href
             // instead it is necessary to use msSaveOrOpenBlob
             if (window.navigator && window.navigator.msSaveOrOpenBlob) {
@@ -1746,7 +1652,7 @@ var SalesManagementComponent = /** @class */ (function () {
             var downloadURL = URL.createObjectURL(newBlob);
             window.open(downloadURL);
         }, function (err) {
-            _this.toastr.error("", err.error.message);
+            _this.toastr.error('', err.error.message);
         });
         // print pdf
         //printJS({printable:'https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf', type:'pdf', showModal:false})
@@ -1755,51 +1661,46 @@ var SalesManagementComponent = /** @class */ (function () {
         var _this = this;
         this.datatbaleData.page = "1";
         this.datatbaleData.limit = "100000";
-        this.salesManagementService.orderList(this.datatbaleData).subscribe(function (response) {
+        this.salesManagementService
+            .orderList(this.datatbaleData).subscribe(function (response) {
             var resData = JSON.parse(JSON.stringify(response));
             if (resData.status_code == 200) {
                 var onlyNameAndSymbolArr = resData.data.map(function (x) { return ({
-                    "Order Date": _this.datePipe.transform(x.created_at, "MM-dd-yyyy"),
-                    "Invoice No": x.invoice_no || "-",
-                    "PO No": x.po_num || "-",
-                    "Store Name": x.store_name || "-",
-                    "Payment Due Date": _this.datePipe.transform(x.due_date, "MM-dd-yyyy"),
-                    "Order Amount": x.amount || "-",
-                    "Order Status": x.status || "-",
-                    "Order Verification": x.verfication_status
-                        ? "Verified"
-                        : "Not Verified",
-                    "Order Delivered": x.delivered_status
-                        ? "Delivered"
-                        : "Not Delivered",
-                    "Order Amount Received": x.amount_recieved || "$0",
-                    "Open Balance": x.payment_status || "$0",
-                    Profit: x.order_profit || "$0",
-                    "Profit Percentage": x.order_profit_percentage || "$0",
-                    Salesman: x.salesman || "-",
+                    'Order Date': _this.datePipe.transform(x.created_at, "MM-dd-yyyy"),
+                    'Invoice No': x.invoice_no || "-",
+                    'PO No': x.po_num || "-",
+                    'Store Name': x.store_name || "-",
+                    'Payment Due Date': _this.datePipe.transform(x.due_date, "MM-dd-yyyy"),
+                    'Order Amount': x.amount || "-",
+                    'Order Status': x.status || "-",
+                    'Order Verification': x.verfication_status ? "Verified" : "Not Verified",
+                    'Order Delivered': x.delivered_status ? "Delivered" : "Not Delivered",
+                    'Order Amount Received': x.amount_recieved || "$0",
+                    'Open Balance': x.payment_status || "$0",
+                    'Profit': x.order_profit || "$0",
+                    'Profit Percentage': x.order_profit_percentage || "$0",
+                    'Salesman': x.salesman || "-"
                 }); });
-                if (type == "pdf") {
+                if (type == 'pdf') {
                     if (onlyNameAndSymbolArr.length > 0) {
                         var keys = [Object.keys(onlyNameAndSymbolArr[0])];
-                        var values = onlyNameAndSymbolArr.map(function (element) {
-                            return Object.values(element);
-                        });
-                        _this.commonService.exportArrayPDF(keys, values, "salesList");
+                        var values = onlyNameAndSymbolArr.map(function (element) { return Object.values(element); });
+                        _this.commonService.exportArrayPDF(keys, values, 'salesList');
                     }
                     else {
-                        _this.toastr.error("", "No Data Found !");
+                        _this.toastr.error('', "No Data Found !");
                         $("#myDropdown").toggle();
                     }
                 }
                 else {
-                    _this.commonService.exportCsv(resData.data, onlyNameAndSymbolArr, "salesList");
+                    _this.commonService.exportCsv(resData.data, onlyNameAndSymbolArr, 'salesList');
                 }
             }
             else {
-                _this.toastr.error("", resData.message);
+                _this.toastr.error('', resData.message);
             }
         }, function (err) {
-            _this.toastr.error("", err.error.message);
+            _this.toastr.error('', err.error.message);
         });
     };
     SalesManagementComponent.ctorParameters = function () { return [
@@ -1817,9 +1718,9 @@ var SalesManagementComponent = /** @class */ (function () {
     ], SalesManagementComponent.prototype, "dtElement", void 0);
     SalesManagementComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: "app-sales-management",
+            selector: 'app-sales-management',
             template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./sales-management.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/views/sales-management/sales-management.component.html")).default,
-            styles: ["\n      .anchor-tag {\n        color: #23282c;\n        text-decoration: none !important;\n      }\n    "]
+            styles: ["\n  .anchor-tag{\n    color: #23282c;\n    text-decoration: none !important;\n}"]
         }),
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["Title"],
             ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"],

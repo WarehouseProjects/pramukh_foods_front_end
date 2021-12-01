@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"animated fadeIn\">\n  <div class=\"row\">\n    <div class=\"col-lg-12\">\n      <div class=\"card\">\n        <div class=\"card-header d-flex justify-content-between align-items-center\">Category Management\n          <div class=\"d-flex flex-wrap justify-content-end align-items-center\">\n            <div class=\"pull-right mr-2\">\n              <button class=\"btn btn-md btn-primary\" type=\"button\" [routerLink]=\"['/category-management/add']\">\n                <i class=\"fa fa-plus mr-2\"></i>\n                Add Category\n              </button>\n            </div>\n            <div class=\"dropdown pull-right\">\n              <button (click)=\"commonService.toggleDropDown()\" class=\"btn btn-md btn-primary dropbtn\" type=\"button\">\n                <i class=\"fa fa-file-export mr-2\"></i>\n                Export\n              </button>\n              <div id=\"myDropdown\" class=\"dropdown-content\">\n                <a href=\"javascript:void(0)\" (click)=\"exportTable('xlsx')\"\n                  style=\"font-size: small; text-decoration: none;\">\n                  Export to XLSX\n                </a>\n                <!-- <a href=\"javascript:void(0)\"\n                                                        (click)=\"commonService.exportPDF(false, 0, 'avarageProductList')\">Export to PDF</a> -->\n                <!-- <a href=\"javascript:void(0)\" (click)=\"exportTable('pdf')\">Export to PDF</a> -->\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"card-body p-4\">\n          <!-- <div class=\"d-flex flex-wrap justify-content-end align-items-center\">\n            <div style=\"margin-right: 10px;\" class=\"form-group\">\n              <button class=\"btn btn-md btn-primary\" type=\"button\" [routerLink]=\"['/category-management/add']\"><i class=\"fa fa-plus mr-2\n                        \"></i>Add Category</button>\n            </div>\n            <div class=\"form-group dropdown\" style=\"float: right; margin-left: 10px;\">\n              <button (click)=\"commonService.toggleDropDown()\" class=\"btn btn-md btn-primary dropbtn\" type=\"button\"><i\n                  class=\"fa fa-file-export mr-2\n                            \"></i>Export</button>\n              <div id=\"myDropdown\" class=\"dropdown-content\">\n                <a href=\"javascript:void(0)\" (click)=\"exportTable('xlsx')\">Export to XLSX</a> -->\n          <!-- <a href=\"javascript:void(0)\" (click)=\"commonService.exportPDF(true, 2, 'categoryList');rerender();\">Export to PDF</a> -->\n          <!-- <a href=\"javascript:void(0)\" (click)=\"exportTable('pdf')\">Export to PDF</a> -->\n          <!-- </div>\n            </div>\n          </div> -->\n          <!-- <perfect-scrollbar>\n            <div class=\"responsive-table rounded mb-4\"> -->\n          <table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" style=\"width: 100%;\"\n            class=\"data row-border hover table order-table border\" id=\"excel-table\">\n            <thead>\n              <tr>\n                <th>Name</th>\n                <th>Description</th>\n                <th id=\"last-header\" class=\"text-center\">Actions</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let category of categoryList;let i = index;\">\n                <td>{{category.name || \"-\"}}</td>\n                <td>\n                  <!-- <div *ngIf=\"category.description.length>30\"\n                    style=\"resize: none;height: 94px;width: 300px;overflow: auto;\"><span\n                      [outerHTML]=\"category?.description\">\n                    </span>\n                  </div>\n                  <ng-container *ngIf=\"category.description.length<30\"> -->\n                  {{category?.description}}\n                  <!-- </ng-container> -->\n                </td>\n                <td>\n                  <div class=\"d-flex align-items-center justify-content-center\">\n                    <a class=\"text-dark mx-2\" [routerLink]=\"['/category-management/edit']\"\n                      [queryParams]='{id: category?.id}'>\n                      <i class=\"fa fa-pencil\"></i>\n                    </a>\n                    <a class=\"text-danger mx-2\" href=\"javascript:void(0)\"\n                      (click)=\"deleteModal.show();saveId(category?.id);\">\n                      <i class=\"far fa-trash-alt\"></i>\n                    </a>\n                  </div>\n                </td>\n              </tr>\n              <tr *ngIf=\"categoryList?.length == 0\">\n                <td colspan=\"3\" class=\"no-data-available\">No Data Found !</td>\n              </tr>\n\n            </tbody>\n          </table>\n          <!-- </div>\n          </perfect-scrollbar> -->\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n<!-- delete modal -->\n<div bsModal #deleteModal=\"bs-modal\" class=\"modal fade text-center\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"Delete\"\n  aria-hidden=\"true\">\n  <div class=\"modal-dialog modal-sm modal-dialog-centered\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-body py-4 text-center d-flex flex-column justify-content-center\">\n        <h2 class=\"font-weight-bold mb-4 text-primary\">Delete</h2>\n        <p class=\"mb-0\">Are You Sure You Want To Delete ?</p>\n      </div>\n      <div class=\"modal-footer justify-content-center\">\n        <button type=\"button\" class=\"btn btn-secondary\" (click)=\"deleteModal.hide()\">Cancel</button>\n        <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteCategory()\">Delete</button>\n      </div>\n    </div><!-- /.modal-content -->\n  </div>\n</div><!-- /.modal -->\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"animated fadeIn\">\n    <div class=\"row\">\n        <div class=\"col-lg-12\">\n            <div class=\"card\">\n                <div class=\"card-header\">Category Management</div>\n                <div class=\"card-body p-4\">\n                    <div class=\"d-flex flex-wrap justify-content-end align-items-center\">\n                        <div style=\"margin-right: 10px;\" class=\"form-group\">\n                            <button class=\"btn btn-md btn-primary\" type=\"button\" [routerLink]=\"['/category-management/add']\"><i class=\"fa fa-plus mr-2\n                        \"></i>Add Category</button>\n                        </div>\n                        <div class=\"form-group dropdown\" style=\"float: right; margin-left: 10px;\">\n                            <button (click)=\"commonService.toggleDropDown()\" class=\"btn btn-md btn-primary dropbtn\" type=\"button\"><i class=\"fa fa-file-export mr-2\n                            \"></i>Export</button>\n                            <div id=\"myDropdown\" class=\"dropdown-content\">\n                                <a href=\"javascript:void(0)\" (click)=\"exportTable('xlsx')\">Export to XLSX</a>\n                                <!-- <a href=\"javascript:void(0)\" (click)=\"commonService.exportPDF(true, 2, 'categoryList');rerender();\">Export to PDF</a> -->\n                                <!-- <a href=\"javascript:void(0)\" (click)=\"exportTable('pdf')\">Export to PDF</a> -->\n                            </div>\n                        </div>\n                    </div>\n                    <perfect-scrollbar>\n                    <div class=\"responsive-table rounded mb-4\">\n                        <table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\" class=\"data row-border hover table order-table border\" id=\"excel-table\">\n                            <thead>\n                                <tr>\n                                    <th>Name</th>\n                                    <th>Description</th>\n                                    <th class=\"text-center\">Actions</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr *ngFor=\"let category of categoryList;let i = index;\">\n                                    <td>{{category.name || \"-\"}}</td>\n                                    <td>\n                                    \t<div *ngIf=\"category.description.length>30\" style=\"resize: none;height: 94px;width: 300px;overflow: auto;\"><span [outerHTML]=\"category?.description\">\n                                        </span>\n                                        </div>\n                                        <ng-container *ngIf=\"category.description.length<30\">\n                                            {{category?.description}}\n                                        </ng-container>\n                                    </td>\n                                    <td>\n                                        <div class=\"d-flex align-items-center justify-content-center\">\n                                        <a class=\"text-dark mx-2\" [routerLink]=\"['/category-management/edit']\" [queryParams]='{id: category?.id}'><i\n                                                class=\"fa fa-pencil\"></i></a>\n                                        <a class=\"text-danger mx-2\" href=\"javascript:void(0)\"\n                                            (click)=\"deleteModal.show();saveId(category?.id);\"><i class=\"far fa-trash-alt\"></i></a>\n                                        </div>\n                                    </td>\n                                </tr>\n                                <tr *ngIf=\"categoryList?.length == 0\">\n                                    <td colspan=\"3\" class=\"no-data-available\">No Data Found !</td>\n                                </tr>\n\n                            </tbody>\n                        </table>\n                    </div>\n                    </perfect-scrollbar>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n<!-- delete modal -->\n<div bsModal #deleteModal=\"bs-modal\" class=\"modal fade text-center\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"Delete\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog modal-sm modal-dialog-centered\" role=\"document\">\n        <div class=\"modal-content\">\n            <div class=\"modal-body py-4 text-center d-flex flex-column justify-content-center\">\n                <h2 class=\"font-weight-bold mb-4 text-primary\">Delete</h2>\n                <p class=\"mb-0\">Are You Sure You Want To Delete ?</p>\n            </div>\n            <div class=\"modal-footer justify-content-center\">\n                <button type=\"button\" class=\"btn btn-secondary\" (click)=\"deleteModal.hide()\">Cancel</button>\n                <button type=\"button\" class=\"btn btn-danger\" (click)=\"deleteCategory()\">Delete</button>\n            </div>\n        </div><!-- /.modal-content -->\n    </div>\n</div><!-- /.modal -->");
 
 /***/ }),
 
@@ -298,36 +298,18 @@ var CategoryManagementComponent = /** @class */ (function () {
     CategoryManagementComponent.prototype.getCategoryList = function () {
         var _this = this;
         this.dtOptions = {
-            pagingType: "full_numbers",
+            //pagingType: 'full_numbers',
             pageLength: 100,
             //order: [1, 'desc'],
-            scrollY: "450px",
-            scrollX: true,
-            scrollCollapse: true,
             serverSide: true,
             processing: true,
             ajax: function (dataTablesParameters, callback) {
-                dataTablesParameters.page =
-                    parseInt(dataTablesParameters.start) /
-                        parseInt(dataTablesParameters.length) +
-                        1;
+                dataTablesParameters.page = parseInt(dataTablesParameters.start) / parseInt(dataTablesParameters.length) + 1;
                 dataTablesParameters.limit = dataTablesParameters.length;
                 dataTablesParameters.search_param = dataTablesParameters.search.value;
                 // sorting
-                dataTablesParameters.order[0].column == 0
-                    ? (dataTablesParameters.name =
-                        dataTablesParameters.order[0].column == 0 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "name"
-                            : "-name")
-                    : "";
-                dataTablesParameters.order[0].column == 1
-                    ? (dataTablesParameters.description =
-                        dataTablesParameters.order[0].column == 1 &&
-                            dataTablesParameters.order[0].dir == "asc"
-                            ? "description"
-                            : "-description")
-                    : "";
+                dataTablesParameters.order[0].column == 0 ? dataTablesParameters.name = (dataTablesParameters.order[0].column == 0 && dataTablesParameters.order[0].dir == "asc") ? ("name") : ("-name") : "";
+                dataTablesParameters.order[0].column == 1 ? dataTablesParameters.description = (dataTablesParameters.order[0].column == 1 && dataTablesParameters.order[0].dir == "asc") ? ("description") : ("-description") : "";
                 _this.datatbaleData = dataTablesParameters;
                 _this.categoryManagementService
                     .categorylist(dataTablesParameters)
@@ -335,31 +317,24 @@ var CategoryManagementComponent = /** @class */ (function () {
                     var resData = JSON.parse(JSON.stringify(respones));
                     if (resData.status_code == 200) {
                         _this.categoryList = resData.data;
-                        setTimeout(function () {
-                            var table = $("#excel-table").DataTable();
-                            table.columns.adjust();
-                            document.getElementById("last-header").style.width = "auto";
-                        }, 10);
                         callback({
                             recordsTotal: resData.total_record,
-                            recordsFiltered: dataTablesParameters.search_param == ""
-                                ? resData.total_record
-                                : resData.filter_record,
-                            data: [],
+                            recordsFiltered: dataTablesParameters.search_param == "" ? resData.total_record : resData.filter_record,
+                            data: []
                         });
                     }
                     else {
-                        _this.toastr.error("", resData.message);
+                        _this.toastr.error('', resData.message);
                     }
                 }, function (err) {
-                    _this.toastr.error("", err.error.message);
+                    _this.toastr.error('', err.error.message);
                 });
             },
             columns: [
-                { data: "name" },
-                { data: "description" },
-                { data: "action", searchable: false, orderable: false },
-            ],
+                { data: 'name' },
+                { data: 'description' },
+                { data: 'action', searchable: false, orderable: false }
+            ]
         };
     };
     CategoryManagementComponent.prototype.ngAfterViewInit = function () {
@@ -373,18 +348,20 @@ var CategoryManagementComponent = /** @class */ (function () {
     };
     CategoryManagementComponent.prototype.deleteCategory = function () {
         var _this = this;
-        this.categoryManagementService.deleteCategory(this.categoryId).subscribe(function (response) {
+        this.categoryManagementService
+            .deleteCategory(this.categoryId)
+            .subscribe(function (response) {
             var resData = JSON.parse(JSON.stringify(response));
             if (resData.status_code == 200) {
                 _this.deleteModal.hide();
-                _this.toastr.success("", "Category deleted successfully.");
+                _this.toastr.success('', "Category deleted successfully.");
                 _this.rerender();
             }
             else {
-                _this.toastr.error("", resData.message);
+                _this.toastr.error('', resData.message);
             }
         }, function (err) {
-            _this.toastr.error("", err.error.mesaage);
+            _this.toastr.error('', err.error.mesaage);
         });
     };
     CategoryManagementComponent.prototype.rerender = function () {
@@ -398,35 +375,34 @@ var CategoryManagementComponent = /** @class */ (function () {
         var _this = this;
         this.datatbaleData.page = "1";
         this.datatbaleData.limit = "100000";
-        this.categoryManagementService.categorylist(this.datatbaleData).subscribe(function (response) {
+        this.categoryManagementService
+            .categorylist(this.datatbaleData).subscribe(function (response) {
             var resData = JSON.parse(JSON.stringify(response));
             if (resData.status_code == 200) {
                 var onlyNameAndSymbolArr = resData.data.map(function (x) { return ({
-                    Name: x.name || "-",
-                    Description: x.description || "-",
+                    'Name': x.name || "-",
+                    'Description': x.description || "-"
                 }); });
-                if (type == "pdf") {
+                if (type == 'pdf') {
                     if (onlyNameAndSymbolArr.length > 0) {
                         var keys = [Object.keys(onlyNameAndSymbolArr[0])];
-                        var values = onlyNameAndSymbolArr.map(function (element) {
-                            return Object.values(element);
-                        });
-                        _this.commonService.exportArrayPDF(keys, values, "categoryList");
+                        var values = onlyNameAndSymbolArr.map(function (element) { return Object.values(element); });
+                        _this.commonService.exportArrayPDF(keys, values, 'categoryList');
                     }
                     else {
-                        _this.toastr.error("", "No Data Found !");
+                        _this.toastr.error('', "No Data Found !");
                         $("#myDropdown").toggle();
                     }
                 }
                 else {
-                    _this.commonService.exportCsv(resData.data, onlyNameAndSymbolArr, "categoryList");
+                    _this.commonService.exportCsv(resData.data, onlyNameAndSymbolArr, 'categoryList');
                 }
             }
             else {
-                _this.toastr.error("", resData.message);
+                _this.toastr.error('', resData.message);
             }
         }, function (err) {
-            _this.toastr.error("", err.error.message);
+            _this.toastr.error('', err.error.message);
         });
     };
     CategoryManagementComponent.ctorParameters = function () { return [
@@ -436,7 +412,7 @@ var CategoryManagementComponent = /** @class */ (function () {
         { type: _shared_services_common_service__WEBPACK_IMPORTED_MODULE_8__["CommonService"] }
     ]; };
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("deleteModal"),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('deleteModal'),
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_3__["ModalDirective"])
     ], CategoryManagementComponent.prototype, "deleteModal", void 0);
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -445,8 +421,8 @@ var CategoryManagementComponent = /** @class */ (function () {
     ], CategoryManagementComponent.prototype, "dtElement", void 0);
     CategoryManagementComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: "app-category-management",
-            template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./category-management.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/views/category-management/category-management.component.html")).default,
+            selector: 'app-category-management',
+            template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./category-management.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/views/category-management/category-management.component.html")).default
         }),
         Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["Title"],
             ngx_toastr__WEBPACK_IMPORTED_MODULE_5__["ToastrService"],
