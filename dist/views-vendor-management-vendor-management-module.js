@@ -489,6 +489,7 @@ var VendorManagementComponent = /** @class */ (function () {
             //order: [1, 'desc'],
             serverSide: true,
             processing: true,
+            searchDelay: 1300,
             ajax: function (dataTablesParameters, callback) {
                 dataTablesParameters.page = parseInt(dataTablesParameters.start) / parseInt(dataTablesParameters.length) + 1;
                 dataTablesParameters.limit = dataTablesParameters.length;

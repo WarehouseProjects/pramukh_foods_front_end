@@ -180,6 +180,7 @@ var UpdatePaymentReceivedComponent = /** @class */ (function () {
             order: [1, 'asc'],
             serverSide: true,
             processing: true,
+            searchDelay: 1300,
             ajax: function (dataTablesParameters, callback) {
                 dataTablesParameters.page = parseInt(dataTablesParameters.start) / parseInt(dataTablesParameters.length) + 1;
                 dataTablesParameters.limit = dataTablesParameters.length;
@@ -210,8 +211,8 @@ var UpdatePaymentReceivedComponent = /** @class */ (function () {
                             _this.orderList.forEach(function (element) {
                                 if (leftAmountReceived > 0) {
                                     // if(leftAmountReceived < element.open_balance){
-                                    //   element.payment = element.open_balance - leftAmountReceived; 
-                                    //   leftAmountReceived = element.open_balance - leftAmountReceived; 
+                                    //   element.payment = element.open_balance - leftAmountReceived;
+                                    //   leftAmountReceived = element.open_balance - leftAmountReceived;
                                     // }else{
                                     if (leftAmountReceived > element.open_balance) {
                                         element.payment = leftAmountReceived - element.open_balance;
